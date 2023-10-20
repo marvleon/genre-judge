@@ -5,5 +5,5 @@ class Model():
     def select(self):
         # Gets al entries from DB return tuple containing all rows of database
         pass
-    def insert(self, author, quote):
+    def insert(self, quote, author, source, date):
         pass
