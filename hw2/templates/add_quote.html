@@ -1,1 +1,20 @@
-<!-- derived from layout -->
+<!-- derived from layout.html -->
+{% extends "layout.html" %} {% block content %}
+<h2>Add a New Quote</h2>
+
+<form action="{{ url_for('submit_quote') }}" method="post">
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required />
+  </div>
+
+  <div class="form-group">
+    <label for="quote">Quote:</label>
+    <textarea id="quote" name="quote" rows="5" cols="50" required></textarea>
+  </div>
+
+  <input type="submit" value="Add Quote" />
+</form>
+
+<a href="{{ url_for('index') }}">Back to Quotes List</a>
+{% endblock %}
