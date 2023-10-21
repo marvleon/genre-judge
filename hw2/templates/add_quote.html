@@ -2,7 +2,7 @@
 {% extends "layout.html" %} {% block content %}
 <h2>Add a New Quote</h2>
 
-<form action="{{ url_for('quote.post') }}" method="post">
+<form action="{{ url_for('quote') }}" method="post">
   <div class="form-group">
     <label for="author">Author:</label>
     <input type="text" id="author" name="author" required />
