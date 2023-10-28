@@ -3,12 +3,11 @@ FROM python:3.8-alpine
 
 LABEL maintainer="marvleon@pdx.edu"
 
-
-# Copy the local package directories to the container
-COPY . /app
-
 # Set the working directory in the container
 WORKDIR /app
+
+# Copy the local package directories to the container
+COPY ./hw2/ ./
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
