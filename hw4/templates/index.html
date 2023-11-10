@@ -1,0 +1,14 @@
+<!-- derived from layout -->
+{% extends "layout.html" %} {% block content %}
+<h2>Quotes List</h2>
+<ul>
+  {% for entry in entries %}
+  <li>
+    "{{ entry.quote }}" - {{ entry.author }} ({{ entry.source }}, {{ entry.date
+    }})
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{{ url_for('quote') }}">Add a New Quote</a>
+{% endblock %}
