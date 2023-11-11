@@ -14,7 +14,7 @@ def from_datastore(entity):
     and 'added' is a Python datetime
     """
     if not entity:
-        return []
+        return None
     if isinstance(entity, list):
         entity = entity.pop()
     return [entity['quote'],entity['author'],entity['source'],entity['date'],entity['added']]
