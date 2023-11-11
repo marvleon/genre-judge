@@ -5,7 +5,7 @@
   {% for entry in entries %}
   <li>
     "{{ entry.quote }}" - {{ entry.author }} ({{ entry.source }}, {{ entry.date
-    }})
+    }} <br>signed on {{ entry.added}}<br>)
   </li>
   {% endfor %}
 </ul>
