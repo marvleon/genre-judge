@@ -14,7 +14,7 @@ def from_datastore(entity):
     and 'added' is a Python datetime
     """
     if not entity:
-        return None
+        return []
     if isinstance(entity, list):
         entity = entity.pop()
     return [entity['quote'],entity['author'],entity['source'],entity['date'],entity['added']]
@@ -26,10 +26,7 @@ class model(Model):
     def select(self):
         query = self.client.query(kind = 'Quote')
         entities = list(map(from_datastore,query.fetch()))
-        if entities is None:
-            return []
-        else: 
-            return entities
+        return entities
 
     def insert(self,quote,author,source,date):
         key = self.client.key('Quote')
