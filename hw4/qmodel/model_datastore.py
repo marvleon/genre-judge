@@ -26,7 +26,10 @@ class model(Model):
     def select(self):
         query = self.client.query(kind = 'Quote')
         entities = list(map(from_datastore,query.fetch()))
-        return entities
+        if entities is None:
+            return []
+        else: 
+            return entities
 
     def insert(self,quote,author,source,date):
         key = self.client.key('Quote')
