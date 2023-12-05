@@ -2,7 +2,7 @@
 # This class manages the login functionality
 
 from flask.view import MethodView
-from util import create_spotify_oauth, get_token
+from util import create_spotify_oauth
 
 class Login(MethodView):
     def get(self):

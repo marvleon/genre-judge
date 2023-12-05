@@ -2,7 +2,7 @@
 # This class manages the redirect functionality
 
 from flask.view import MethodView
-from util import create_spotify_oauth, get_token
+from util import create_spotify_oauth
 
 class RedirectPage(MethodView):
     def get(self):
