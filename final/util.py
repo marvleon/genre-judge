@@ -7,6 +7,9 @@ from credentials import CLIENT_ID, CLIENT_SECRET
 import time
 
 TOKEN_CODE = "token_info"
+MEDIUM_TERM = "medium_term"
+SHORT_TERM = "short_term"
+LONG_TERM = "long_term"
 
 def create_spotify_oauth():
     return SpotifyOAuth(
