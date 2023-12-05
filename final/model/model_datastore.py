@@ -3,6 +3,7 @@ from .Model import Model
 from datetime import datetime
 from google.cloud import datastore
 
+#Converts the format returned by Datastore into a more Python-friendly format
 def from_datastore(entity):
     """
     Datastore returns:
@@ -19,6 +20,10 @@ def from_datastore(entity):
         entity = entity.pop()
     return [entity['quote'],entity['author'],entity['source'],entity['date'],entity['added']]
 
+#model class Inherits from Model in Model.py
+#__init__ initializes the connection to Google Cloud Datastore
+#select() retrieves all entries from the Datastore
+#insert() adds a new entry to Datastore
 class model(Model):
     def __init__(self):
         self.client = datastore.Client('cloud-leon-marvleon')

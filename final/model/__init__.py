@@ -7,8 +7,11 @@ model_backend = "datastore"
 
 if model_backend == "datastore":
     from .model_datastore import model
+    #imports the model class from .model_datastore
 
+#set object
 appmodel = model()
 
+#getter function returns object
 def get_model():
     return appmodel

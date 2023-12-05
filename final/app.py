@@ -1,5 +1,6 @@
 # Marvin Leon cs430
-# This file
+# This file sets up Flask application and URL rules. It defines
+# routes for the index page and the entry management page (`/` and `/quote` resp.)
 # - initializes the Flask app (main entry point to the app)
 # - defines the two primary enpoints, and binds them to presenter classes
 # - utilizes Flask's MethodView that separates HTTP methods
