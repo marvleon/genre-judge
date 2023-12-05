@@ -25,6 +25,10 @@ def createSpotifyOuath():
     )
 
 app.add_url_rule("/receipt", view_func=Receipt.as_view("receipt"), methods=["GET"])
+app.add_url_rule('/', view_func=Index.as_view('index'))
+app.add_url_rule('/login', view_func=Login.as_view('login'))
+app.add_url_rule('/redirect', view_func=Redirect.as_view('redirectPage'))
+app.add_url_rule('/getTracks', view_func=GetTracks.as_view('getTracks'))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

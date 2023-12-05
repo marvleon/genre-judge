@@ -1,0 +1,15 @@
+<!-- base template for all derived templates (index, add_quote) -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YOUR MUSIC SUMMARY!!!</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page">{% block content %}{% endblock %}</div>
+  </body>
+</html>
