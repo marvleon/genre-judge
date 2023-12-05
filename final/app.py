@@ -6,14 +6,18 @@
 
 import flask
 from flask.views import MethodView
+from index import Index
 from login import Login
 from redirect import RedirectPage
+from tracks import GetTracks
 from summary import MusicSummary
+from credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
 #REPLACE ME!!!!!!!!!!!!!!!!!!!!!!!!
 CLIENT_ID=9010a36dc457457187884f22cc60a67f
 CLIENT_SECRET=75768b26e27d4ead84e842f235499fbb
+
 
 def createSpotifyOuath():
     return SpotifyOAuth(
