@@ -14,7 +14,6 @@ from summary import MusicSummary
 from credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
-#REPLACE ME!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 def createSpotifyOuath():
