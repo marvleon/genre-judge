@@ -8,7 +8,7 @@ import flask
 from flask.views import MethodView
 from index import Index
 from login import Login
-from redirect import RedirectPage
+from redirect import Redirect
 from tracks import GetTracks
 from summary import musicSummary
 from credentials import SECRET_KEY
