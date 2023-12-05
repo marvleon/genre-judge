@@ -10,7 +10,7 @@ from index import Index
 from login import Login
 from redirect import RedirectPage
 from tracks import GetTracks
-from summary import MusicSummary
+from summary import musicSummary
 from credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
