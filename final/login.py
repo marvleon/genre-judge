@@ -4,12 +4,7 @@
 from flask.view import MethodView
 
 class Login(MethodView):
-    def spotifyLogin():
-        sp_oauth = SpotifyOAuth(
-            clientID=CLIENT_ID,
-            clientSecret=CLIENT_SECRET,
-            redirect_uri=url_for("redirectPage", _external=True)
-            scope="user-top-read user-library-read"
-        )
-        auth_url = sp_oauth.get_authorize_url()
+    def get(self):
+        sp_oath = create_spotify_oath()
+        auth_url = sp_oath.get_authorize_url()
         return redirect(auth_url)
