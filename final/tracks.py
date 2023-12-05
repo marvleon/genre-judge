@@ -14,4 +14,25 @@ class GetTracks(MethodView):
             print("user not logged in")
             return redirect("/")
         sp = spotipy.Spotify(auth=token_info['access_token'])
-        # ... rest of your code ...
+        
+        current_user_name = sp.current_user()['display_name']
+        short_term = sp.current_user_top_tracks(
+            limit=10,
+            offset=0,
+            time_range=SHORT_TERM,
+        )
+        medium_term = sp.current_user_top_tracks(
+            limit=10,
+            offset=0,
+            time_range=MEDIUM_TERM,
+        )
+        long_term = sp.current_user_top_tracks(
+            limit=10,
+            offset=0,
+            time_range=LONG_TERM,
+        )
+
+        if os.path.exists(".cache"): 
+            os.remove(".cache")
+
+        return render_template('receipt.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime())
