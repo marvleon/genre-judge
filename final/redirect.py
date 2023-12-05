@@ -4,7 +4,7 @@
 from flask.views import MethodView
 from util import create_spotify_oauth
 
-class RedirectPage(MethodView):
+class Redirect(MethodView):
     def get(self):
         sp_oauth = create_spotify_oauth()
         session.clear() 
