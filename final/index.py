@@ -6,8 +6,9 @@ from flask import render_template
 from flask.views import MethodView
 import qmodel
 
-
+#This class  is a Flask view for the index page
 class Index(MethodView):
+    #Retrieves all entries from the model and renders them using index.html 
     def get(self):
         model = qmodel.get_model()
         entries = [
