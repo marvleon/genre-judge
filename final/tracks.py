@@ -4,6 +4,7 @@
 from flask.views import MethodView
 from flask import render_template, redirect, url_for
 from your_module import get_token 
+from util import create_spotify_oauth, get_token
 import spotipy
 
 class GetTracks(MethodView):
