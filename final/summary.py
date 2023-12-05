@@ -1,7 +1,7 @@
 # Marvin Leon cs430
 # This class manages the music summary functionality
 
-from flask.view import MethodView
+from flask.views import MethodView
 
 class musicSummary(MethodView):
     def get(self):

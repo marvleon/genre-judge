@@ -14,17 +14,8 @@ from summary import MusicSummary
 from credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
+app.secret_key= SECRET_KEY
 
-
-def createSpotifyOuath():
-    return SpotifyOAuth(
-        clientID=CLIENT_ID,
-        clientSecret=CLIENT_SECRET,
-        redirect_uri=url_for("redirectPage", _external=True)
-        scope="user-top-read user-library-read"
-    )
-
-app.add_url_rule("/summary", view_func=summary.as_view("summary"), methods=["GET"])
 app.add_url_rule('/', view_func=Index.as_view('index'))
 app.add_url_rule('/login', view_func=Login.as_view('login'))
 app.add_url_rule('/redirect', view_func=Redirect.as_view('redirectPage'))
