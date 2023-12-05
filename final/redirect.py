@@ -4,14 +4,10 @@
 from flask.view import MethodView
 
 class RedirectPage(MethodView):
-    def pageRedirect():
-        code = request.args.get('code') # pageRedirect?code=TOKEN, returns token
-        sp_oath = SpotifyOAuth(
-            clientID=CLIENT_ID,
-            clientSecret=CLIENT_SECRET,
-            redirect_uri=url_for("redirectPage", _external=True)
-            scope="user-top-read user-library-read"
-        )
-        token_info = sp_oath.get_access_token(code)
-        session[TOKEN_INFO] = token_info
-        return redirect(url_for("summary", _external=True))
+    def get(self):
+        sp_oauth = create_spotify_oauth()
+        session.clear() 
+        code = request.args.get('code')
+        token_info = sp_oauth.get_access_token(code)
+        session[TOKEN_CODE] = token_info    
+        return redirect(url_for("getTracks", _external=True))
