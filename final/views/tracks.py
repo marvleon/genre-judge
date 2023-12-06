@@ -19,18 +19,20 @@ class GetTracks(MethodView):
             return redirect("/")
         sp = spotipy.Spotify(auth=token_info['access_token'])
         current_user_name = sp.current_user()['display_name']
-        short_term = sp.current_user_top_tracks(
-            limit=10,
+
+        #gets the top tracks of the user , returns a dictionary
+        short_term = sp.current_user_top_artists(
+            limit=1,
             offset=0,
             time_range=SHORT_TERM,
         )
         medium_term = sp.current_user_top_tracks(
-            limit=10,
+            limit=1,
             offset=0,
             time_range=MEDIUM_TERM,
         )
         long_term = sp.current_user_top_tracks(
-            limit=10,
+            limit=1,
             offset=0,
             time_range=LONG_TERM,
         )
@@ -41,3 +43,5 @@ class GetTracks(MethodView):
         chatReply= get_chat_reply()
 
         return render_template('music.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
+
+#def get_artist_id
