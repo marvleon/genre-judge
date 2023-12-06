@@ -39,9 +39,31 @@ class GetTracks(MethodView):
 
         if os.path.exists(".cache"): 
             os.remove(".cache")
+        # Test the function with the provided data
+        genre = get_genre(short_term)
 
         chatReply= get_chat_reply()
 
-        return render_template('music.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
+        return render_template('music.html', user_display_name=current_user_name, short_term=genre, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
 
-#def get_artist_id
+def get_genre(music_data):
+    """
+    Extracts and cleans the genre from the given Spotify data dictionary.
+
+    Parameters:
+    data (dict): A dictionary containing Spotify artist data.
+
+    Returns:
+    str: The cleaned genre of the artist.
+    """
+    try:
+        genre_list = music_data['items'][0]['genres']
+        if genre_list:
+            # Extract the main genre, assuming it follows a pattern like 'pov: genre'
+            main_genre = genre_list[0].split(':')[-1].strip()
+            return main_genre
+        else:
+            return "No genre available"
+    except (KeyError, IndexError):
+        return "Invalid data structure"
+
