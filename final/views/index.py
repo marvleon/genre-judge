@@ -9,5 +9,5 @@ from flask.views import MethodView
 class Index(MethodView):
     #Retrieves all entries from the model and renders them using index.html 
     def get(self):
-        name = 'username'
+        name = 'visitor!'
         return render_template("index.html", title='Welcome', username=name)
