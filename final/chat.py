@@ -1,11 +1,10 @@
 from openai import OpenAI
 from .credentials import OPENAI_API_KEY
 
-musicTaste = "Describe what kind of person I am because all I listen to is Indie music"
-botType = "A sarcastic, rude, and sassy close friend who is brief"
 
-def get_chat_reply():
-
+def get_chat_reply(genre):
+    musicTaste = f"Describe what kind of person I am because all I listen to is {genre} music"
+    botType = "A sarcastic, rude, and sassy close friend who is brief"
     client = OpenAI(
         api_key=OPENAI_API_KEY
     )

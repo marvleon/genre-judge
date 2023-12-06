@@ -26,7 +26,7 @@ class GetTracks(MethodView):
             offset=0,
             time_range=SHORT_TERM,
         )
-        medium_term = sp.current_user_top_tracks(
+        medium_term = sp.current_user_top_artists(
             limit=1,
             offset=0,
             time_range=MEDIUM_TERM,
@@ -40,7 +40,7 @@ class GetTracks(MethodView):
         if os.path.exists(".cache"): 
             os.remove(".cache")
         
-        genre = get_genre(short_term) 
+        genre = get_genre(medium_term) 
         
         chatReply = get_chat_reply(genre)
         
