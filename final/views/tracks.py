@@ -2,8 +2,8 @@
 # This class manages the music track data functionality
 
 from flask.views import MethodView
-from flask import render_template, redirect
-from util import get_token
+from flask import render_template, redirect, url_for
+from util import create_spotify_oauth, get_token
 import spotipy
 
 class GetTracks(MethodView):
