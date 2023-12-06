@@ -3,7 +3,7 @@
 
 from flask.views import MethodView
 from flask import render_template, redirect
-import util
+from ..util import get_token, SHORT_TERM, MEDIUM_TERM, LONG_TERM
 from time import gmtime
 import spotipy
 import os
@@ -11,7 +11,7 @@ import os
 class GetTracks(MethodView):
     def get(self):
         try: 
-            token_info = util.get_token()
+            token_info = get_token()
         except: 
             print("user not logged in")
             return redirect("/")
@@ -20,17 +20,17 @@ class GetTracks(MethodView):
         short_term = sp.current_user_top_tracks(
             limit=10,
             offset=0,
-            time_range=util.SHORT_TERM,
+            time_range=SHORT_TERM,
         )
         medium_term = sp.current_user_top_tracks(
             limit=10,
             offset=0,
-            time_range=util.MEDIUM_TERM,
+            time_range=MEDIUM_TERM,
         )
         long_term = sp.current_user_top_tracks(
             limit=10,
             offset=0,
-            time_range=util.LONG_TERM,
+            time_range=LONG_TERM,
         )
 
         if os.path.exists(".cache"): 

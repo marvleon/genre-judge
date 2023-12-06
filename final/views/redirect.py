@@ -3,8 +3,8 @@
 
 from flask import request, session, redirect, url_for
 from flask.views import MethodView
-from util import create_spotify_oauth
-from credentials import TOKEN_CODE
+from ..util import create_spotify_oauth
+from ..credentials import TOKEN_INFO
 
 class Redirect(MethodView):
     def get(self):
@@ -12,5 +12,5 @@ class Redirect(MethodView):
         session.clear() 
         code = request.args.get('code')
         token_info = sp_oauth.get_access_token(code)
-        session[TOKEN_CODE] = token_info    
+        session[TOKEN_INFO] = token_info    
         return redirect(url_for("getTracks", _external=True))
