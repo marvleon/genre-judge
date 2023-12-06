@@ -4,7 +4,6 @@
 
 from flask import render_template
 from flask.views import MethodView
-from util import create_spotify_oauth, get_token
 
 #This class  is a Flask view for the index page
 class Index(MethodView):
