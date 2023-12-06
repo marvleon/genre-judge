@@ -7,6 +7,8 @@ from ..util import get_token, SHORT_TERM, MEDIUM_TERM, LONG_TERM
 from time import gmtime
 import spotipy
 import os
+from openai import OpenAI
+from ..credentials import OPENAI_API_KEY
 
 class GetTracks(MethodView):
     def get(self):
@@ -35,5 +37,19 @@ class GetTracks(MethodView):
 
         if os.path.exists(".cache"): 
             os.remove(".cache")
+        
+        client = OpenAI(
+            api_key = OPENAI_API_KEY
+        )
+        musicTaste = "Describe what kind of person I am because all I listen to is Indie music"
+        botType = "A sarcastic, rude, and sassy close friend"
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": botType},
+                {"role": "user", "content": musicTaste}
+    ]
+)
+        chatReply = response.choices[0].message.content
 
-        return render_template('music.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime())
+        return render_template('music.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
