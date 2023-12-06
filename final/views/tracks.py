@@ -39,11 +39,13 @@ class GetTracks(MethodView):
 
         if os.path.exists(".cache"): 
             os.remove(".cache")
-        # Test the function with the provided data
-        genre = get_genre(short_term)
-
-        chatReply= get_chat_reply()
-
+        
+        genre = get_genre(short_term) 
+        
+        chatReply = get_chat_reply(genre)
+        
+        if genre == 0:
+            chatReply = "Sorry an error occurred with chatGPT"
         return render_template('music.html', user_display_name=current_user_name, short_term=genre, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
 
 def get_genre(music_data):
@@ -56,14 +58,11 @@ def get_genre(music_data):
     Returns:
     str: The cleaned genre of the artist.
     """
-    try:
-        genre_list = music_data['items'][0]['genres']
-        if genre_list:
-            # Extract the main genre, assuming it follows a pattern like 'pov: genre'
-            main_genre = genre_list[0].split(':')[-1].strip()
-            return main_genre
-        else:
-            return "No genre available"
-    except (KeyError, IndexError):
-        return "Invalid data structure"
+    genre_list = music_data['items'][0]['genres']
+    if genre_list:
+        # Extract the main genre, assuming it follows a pattern like 'pov: genre'
+        main_genre = genre_list[0].split(':')[-1].strip()
+        return main_genre
+    else:
+        return "0"
 
