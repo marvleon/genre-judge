@@ -38,6 +38,6 @@ class GetTracks(MethodView):
         if os.path.exists(".cache"): 
             os.remove(".cache")
 
-        chat_repy = get_chat_reply()
+        chatReply= get_chat_reply()
 
         return render_template('music.html', user_display_name=current_user_name, short_term=short_term, medium_term=medium_term, long_term=long_term, currentTime=gmtime(), chat_response=chatReply)
