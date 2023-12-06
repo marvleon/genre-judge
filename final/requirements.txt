@@ -3,3 +3,4 @@ google-cloud-datastore
 google-cloud-firestore
 gunicorn
 spotipy
+openai
