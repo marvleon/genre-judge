@@ -6,7 +6,6 @@
 
 import flask
 from views import Index, Login, Redirect, GetTracks
-from flask.views import MethodView
 from credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
