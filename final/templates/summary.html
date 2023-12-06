@@ -10,6 +10,26 @@
     />
   </head>
   <body>
-    <div class="page">{% block content %}{% endblock %}</div>
+    <div class="page">
+      {% block content %}
+      <h1>Welcome, {{ user_display_name }}!</h1>
+      <div>
+        <h2>Short Term Goals</h2>
+        <p>{{ short_term }}</p>
+      </div>
+      <div>
+        <h2>Medium Term Goals</h2>
+        <p>{{ medium_term }}</p>
+      </div>
+      <div>
+        <h2>Long Term Goals</h2>
+        <p>{{ long_term }}</p>
+      </div>
+      <div>
+        <h2>Current Time</h2>
+        <p>{{ currentTime }}</p>
+      </div>
+      {% endblock %}
+    </div>
   </body>
 </html>
