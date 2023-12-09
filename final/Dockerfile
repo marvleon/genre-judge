@@ -4,10 +4,10 @@ FROM python:3.9
 LABEL maintainer="marvleon@pdx.edu"
 
 # Copy the contents of the current directory into the container directory /app
-COPY . /final
+COPY . /app
 
 # Set the working directory of the container to /app
-WORKDIR /final
+WORKDIR /app
 
 # Install the Python packages specified by requirements.txt into the container
 RUN apt update -y && apt install -y python3-pip && pip3 install -r requirements.txt

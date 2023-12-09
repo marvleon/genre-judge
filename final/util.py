@@ -3,7 +3,7 @@
 #by the different method views.
 from flask import url_for, session
 from spotipy.oauth2 import SpotifyOAuth
-from final.credentials import CLIENT_ID, CLIENT_SECRET
+from .credentials import CLIENT_ID, CLIENT_SECRET
 import time 
 
 TOKEN_INFO = "token_info"

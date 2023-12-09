@@ -3,7 +3,7 @@
 
 from flask.views import MethodView
 from flask import redirect
-from final.util import create_spotify_oauth
+from ..util import create_spotify_oauth
 
 class Login(MethodView):
     def get(self):

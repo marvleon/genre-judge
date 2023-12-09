@@ -3,7 +3,7 @@
 
 from flask import request, session, redirect, url_for
 from flask.views import MethodView
-from final.util import create_spotify_oauth, TOKEN_INFO
+from ..util import create_spotify_oauth, TOKEN_INFO
 
 class Redirect(MethodView):
     def get(self):
