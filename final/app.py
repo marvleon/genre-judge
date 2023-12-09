@@ -5,7 +5,7 @@
 # - utilizes Flask's MethodView that separates HTTP methods
 
 import flask
-from final.views import Index, Login, Redirect, GetTracks
+from .views import Index, Login, Redirect, GetTracks
 from final.credentials import SECRET_KEY
 
 app = flask.Flask(__name__)
