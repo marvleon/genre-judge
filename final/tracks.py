@@ -3,12 +3,12 @@
 
 from flask.views import MethodView
 from flask import render_template, redirect
-from ..util import get_token, SHORT_TERM, MEDIUM_TERM, LONG_TERM
+from util import get_token, SHORT_TERM, MEDIUM_TERM, LONG_TERM
 from time import gmtime
 import spotipy
 import os
-from ..chat import get_chat_reply
-from ..credentials import OPENAI_API_KEY
+from chat import get_chat_reply
+from credentials import OPENAI_API_KEY
 
 class GetTracks(MethodView):
     def get(self):
