@@ -4,8 +4,9 @@
 from flask import url_for, session
 from spotipy.oauth2 import SpotifyOAuth
 from .credentials import CLIENT_ID, CLIENT_SECRET
-import time
+import time 
 
+TOKEN_INFO = "token_info"
 TOKEN_CODE = "token_info"
 MEDIUM_TERM = "medium_term"
 SHORT_TERM = "short_term"
