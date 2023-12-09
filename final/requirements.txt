@@ -1,6 +1,5 @@
 flask
-google-cloud-datastore
-google-cloud-firestore
 gunicorn
 spotipy
 openai
+wheel
