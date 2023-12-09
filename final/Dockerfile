@@ -1,5 +1,5 @@
 # Use Google Cloud SDK's container as the base image
-FROM google/cloud-sdk
+FROM python:312
 
 # ODIN marvleon maintainer of the container image
 LABEL maintainer="marvleon@pdx.edu"
