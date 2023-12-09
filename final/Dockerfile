@@ -5,10 +5,10 @@ FROM google/cloud-sdk
 LABEL maintainer="marvleon@pdx.edu"
 
 # Copy the contents of the current directory into the container directory /app
-COPY . /app
+COPY . /final
 
 # Set the working directory of the container to /app
-WORKDIR /app
+WORKDIR /final
 
 # Install the Python packages specified by requirements.txt into the container
 RUN apt update -y && apt install -y python3-pip && pip3 install -r requirements.txt

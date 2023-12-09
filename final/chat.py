@@ -1,5 +1,5 @@
 from openai import OpenAI
-from .credentials import OPENAI_API_KEY
+from final.credentials import OPENAI_API_KEY
 
 
 def get_chat_reply(genre):
